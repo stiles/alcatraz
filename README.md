@@ -94,7 +94,7 @@ Known matching gaps: Thomas Limerick (#3, 1938) is called "James Limerick" in th
 
 ### `data/boundary.geojson`
 
-Island boundary polygon from OpenStreetMap [relation 20197830](https://www.openstreetmap.org/relation/20197830) — 135-point coastline traced from imagery. Properties include `wikidata`, `wikipedia`, `gnis_feature_id`, and the NPS website URL. Drop it alongside `places.geojson` for a complete map layer stack.
+Island boundary polygon from the OpenStreetMap `natural=coastline` way ([relation 20197830](https://www.openstreetmap.org/relation/20197830)) — 135 coordinate points, roughly one vertex every 4 metres around the ~500 m perimeter. This is the highest-resolution island outline available from a free public API. Properties include `wikidata`, `wikipedia`, `gnis_feature_id`, and the OSM way id. Drop it alongside `places.geojson` for a complete map layer stack.
 
 ### `data/fbi_docs.json`
 

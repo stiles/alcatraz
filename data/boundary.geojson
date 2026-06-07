@@ -554,14 +554,12 @@
         "name": "Alcatraz Island",
         "short_name": "Alcatraz",
         "osm_relation_id": 20197830,
-        "osm_type": "multipolygon",
+        "osm_way_id": 295140461,
         "wikidata": "Q131354",
         "wikipedia": "en:Alcatraz Island",
         "website": "https://www.nps.gov/alca/",
         "gnis_feature_id": "218080",
-        "ele_m": "37",
-        "boundary": "protected_area",
-        "protect_class": "6"
+        "ele_m": "37"
       }
     }
   ]

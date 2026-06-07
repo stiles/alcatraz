@@ -1,6 +1,10 @@
 """
 Fetch the Alcatraz Island boundary polygon from OpenStreetMap via Overpass API.
 
+The OSM `natural=coastline` way (id 295140461) is the highest-resolution island
+outline available from a free public API. It has 135 coordinate points — roughly
+one vertex every 4 metres around the ~500 m island perimeter.
+
 Source: OSM relation 20197830 (NPS protected area, wikidata Q131354)
 Output:
   data/boundary.geojson - GeoJSON Polygon of the island boundary
@@ -59,14 +63,12 @@ def fetch_boundary() -> dict:
                     "name": tags.get("name"),
                     "short_name": tags.get("short_name"),
                     "osm_relation_id": OSM_RELATION_ID,
-                    "osm_type": tags.get("type"),
+                    "osm_way_id": 295140461,
                     "wikidata": tags.get("wikidata"),
                     "wikipedia": tags.get("wikipedia"),
                     "website": tags.get("website"),
                     "gnis_feature_id": tags.get("gnis:feature_id"),
                     "ele_m": tags.get("ele"),
-                    "boundary": tags.get("boundary"),
-                    "protect_class": tags.get("protect_class"),
                 },
             }
         ],

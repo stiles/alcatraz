@@ -12,10 +12,12 @@ uv sync
 
 | Script | Source | Output |
 |--------|--------|--------|
-| `scripts/fetch_fbi_docs.py` | [FBI Vault – Alcatraz Escape](https://vault.fbi.gov/Alcatraz%20Escape/) | `data/fbi_docs.json`, `documents/*.pdf` |
 | `scripts/scrape_inmates.py` | [National Archives – Former Alcatraz Inmates](https://www.archives.gov/san-francisco/finding-aids/alcatraz-alpha) | `data/inmates.json`, `data/inmates.csv` |
 | `scripts/scrape_notable.py` | [Wikipedia – List of inmates](https://en.wikipedia.org/wiki/List_of_inmates_of_Alcatraz_Federal_Penitentiary) | `data/notable_inmates.json`, `data/inmates_enriched.json`, `data/inmates_enriched.csv` |
 | `scripts/scrape_escapes.py` | [BOP – Alcatraz History](https://www.bop.gov/about/history/alcatraz.jsp) | `data/escape_attempts.json`, `data/escape_attempts.csv` |
+| `scripts/scrape_places.py` | [NPS Developer API – Places](https://developer.nps.gov/api/v1/places?parkCode=alca) | `data/places.json`, `data/places.csv`, `data/places.geojson` |
+| `scripts/scrape_boundary.py` | [OpenStreetMap – relation 20197830](https://www.openstreetmap.org/relation/20197830) | `data/boundary.geojson` |
+| `scripts/fetch_fbi_docs.py` | [FBI Vault – Alcatraz Escape](https://vault.fbi.gov/Alcatraz%20Escape/) | `data/fbi_docs.json`, `documents/*.pdf` |
 
 Run scripts in order — `scrape_notable.py` and `scrape_escapes.py` both read from `data/inmates.csv`:
 
@@ -23,6 +25,8 @@ Run scripts in order — `scrape_notable.py` and `scrape_escapes.py` both read f
 uv run python scripts/scrape_inmates.py
 uv run python scripts/scrape_notable.py
 uv run python scripts/scrape_escapes.py
+uv run python scripts/scrape_places.py
+uv run python scripts/scrape_boundary.py
 uv run python scripts/fetch_fbi_docs.py   # large download, ~600 MB
 ```
 
@@ -69,6 +73,28 @@ Three Wikipedia entries are unmatched in the Archives list: Wilhelm von Brincken
 | `participant_registers` | Pipe-delimited register numbers of matched prisoners (CSV only) |
 
 Known matching gaps: Thomas Limerick (#3, 1938) is called "James Limerick" in the BOP text but "Thomas Robert" in the Archives; two William Martins (registers 370 and 1308) can't be disambiguated from text alone.
+
+### `data/places.json` / `data/places.csv` / `data/places.geojson`
+
+65 named locations on Alcatraz Island from the NPS Developer API, including coordinates, descriptions, tags, and amenities. The GeoJSON file is ready to drop into any mapping tool.
+
+`scrape_places.py` uses `DEMO_KEY` by default. For higher rate limits, set `NPS_API_KEY` to a [free key from the NPS developer portal](https://www.nps.gov/subjects/developer/get-started.htm).
+
+| Column | Description |
+|--------|-------------|
+| `id` | NPS UUID for the place |
+| `title` | Location name |
+| `latitude` / `longitude` | WGS84 coordinates |
+| `listing_description` | Short description |
+| `tags` | Pipe-delimited tags (e.g. tour stops, wayside exhibits) |
+| `url` | NPS.gov page for the location |
+| `is_open_to_public` | Whether publicly accessible |
+| `is_passport_stamp` | Whether a National Parks Passport stamp location |
+| `nps_map_id` | Internal NPS map pin ID |
+
+### `data/boundary.geojson`
+
+Island boundary polygon from OpenStreetMap [relation 20197830](https://www.openstreetmap.org/relation/20197830) — 135-point coastline traced from imagery. Properties include `wikidata`, `wikipedia`, `gnis_feature_id`, and the NPS website URL. Drop it alongside `places.geojson` for a complete map layer stack.
 
 ### `data/fbi_docs.json`
 

@@ -8,6 +8,3 @@ wheels/
 
 # Virtual environments
 .venv
-
-# Downloaded PDFs — too large for git
-documents/

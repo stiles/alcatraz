@@ -7,4 +7,5 @@ requires-python = ">=3.12"
 dependencies = [
     "beautifulsoup4>=4.15.0",
     "requests>=2.34.2",
+    "streetview-dl>=0.7.0",
 ]

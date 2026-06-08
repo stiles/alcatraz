@@ -1,0 +1,14 @@
+{
+  "images": [
+    {
+      "id": "b_block",
+      "title": "B Block cell block interior",
+      "description": "Main cell block gallery inside the Alcatraz cellhouse. Morris and the Anglin brothers were housed in B Block; the 1962 escape route ran through vent holes in the rear cell wall to the utility corridor above.",
+      "filename": "b_block_alcatraz.png",
+      "url": "https://www.google.com/maps/@37.826609,-122.4226538,1a,75y,221.68h,72.71t/data=!3m7!1e1!3m5!1sesoe_18vO01h4HFrTmaV8w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D17.287780646933754%26panoid%3Desoe_18vO01h4HFrTmaV8w%26yaw%3D221.6846083281705!7i13312!8i6656?entry=ttu",
+      "pano_id": "esoe_18vO01h4HFrTmaV8w",
+      "crop_bottom": 0.75,
+      "tags": ["cellhouse", "b-block", "1962-escape"]
+    }
+  ]
+}

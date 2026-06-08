@@ -1,0 +1,91 @@
+{
+  "pano_id": "esoe_18vO01h4HFrTmaV8w",
+  "image_width": 13312,
+  "image_height": 6656,
+  "tile_width": 512,
+  "tile_height": 512,
+  "lat": 37.82660899523459,
+  "lng": -122.42265377828105,
+  "original_lat": 37.826608967180576,
+  "original_lng": -122.42265375665454,
+  "original_elevation_above_egm96": 1.1515914,
+  "heading": 135.95381,
+  "tilt": 89.6355,
+  "roll": 359.48703,
+  "date": "2013-11",
+  "copyright_info": "From the Owner, Photo by: Google",
+  "url_yaw": 221.6846083281705,
+  "url_pitch": 17.287780646933754,
+  "url_fov": 75.0,
+  "url_mode_token": "1a",
+  "address_components": [
+    {
+      "longName": "Alcatraz Main Cell House",
+      "shortName": "Alcatraz Main Cell House",
+      "types": [
+        "premise"
+      ]
+    },
+    {
+      "longName": "Pier 39",
+      "shortName": "Pier 39",
+      "types": [
+        "route"
+      ]
+    },
+    {
+      "longName": "San Francisco",
+      "shortName": "SF",
+      "types": [
+        "locality",
+        "political"
+      ]
+    },
+    {
+      "longName": "San Francisco County",
+      "shortName": "San Francisco County",
+      "types": [
+        "administrative_area_level_2",
+        "political"
+      ]
+    },
+    {
+      "longName": "California",
+      "shortName": "CA",
+      "types": [
+        "administrative_area_level_1",
+        "political"
+      ]
+    },
+    {
+      "longName": "United States",
+      "shortName": "US",
+      "types": [
+        "country",
+        "political"
+      ]
+    },
+    {
+      "longName": "94133",
+      "shortName": "94133",
+      "types": [
+        "postal_code"
+      ]
+    }
+  ],
+  "report_problem_link": "https://cbks0.googleapis.com/cbk?output=report&panoid=esoe_18vO01h4HFrTmaV8w&cb_client=api&cbp=1,0,,0,0&hl=en-US&gl=US",
+  "links": [
+    {
+      "panoId": "ojgJfZimvGizmPqN6tsEig",
+      "heading": 314.6905822753906,
+      "text": "",
+      "elevationAboveEgm96": 1.1514863
+    },
+    {
+      "panoId": "fkozbDsgT19UFk0wyvmoBg",
+      "heading": 136.4284210205078,
+      "text": "",
+      "elevationAboveEgm96": 1.1517831
+    }
+  ]
+}

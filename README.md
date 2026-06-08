@@ -18,6 +18,8 @@ uv sync
 | `scripts/scrape_places.py` | [NPS Developer API – Places](https://developer.nps.gov/api/v1/places?parkCode=alca) | `data/places.json`, `data/places.csv`, `data/places.geojson` |
 | `scripts/scrape_boundary.py` | [OpenStreetMap – relation 20197830](https://www.openstreetmap.org/relation/20197830) | `data/boundary.geojson` |
 | `scripts/fetch_fbi_docs.py` | [FBI Vault – Alcatraz Escape](https://vault.fbi.gov/Alcatraz%20Escape/) | `data/fbi_docs.json`, `documents/*.pdf` |
+| `scripts/discover_streetview.py` | Google Street View (via [streetview-dl](https://github.com/mstiles/streetview-dl)) | `data/streetview_coverage.json`, `data/streetview_urls.txt` |
+| `scripts/download_visuals.py` | `visuals/manifest.json` | `visuals/*.png`, `visuals/metadata/*.json` |
 
 Run scripts in order — `scrape_notable.py` and `scrape_escapes.py` both read from `data/inmates.csv`:
 
@@ -28,7 +30,32 @@ uv run python scripts/scrape_escapes.py
 uv run python scripts/scrape_places.py
 uv run python scripts/scrape_boundary.py
 uv run python scripts/fetch_fbi_docs.py   # large download, ~600 MB
+uv run python scripts/discover_streetview.py   # requires GOOGLE_MAPS_API_KEY
+uv run python scripts/download_visuals.py
 ```
+
+## Visuals
+
+Street View panoramas from inside and around Alcatraz, downloaded with [streetview-dl](https://github.com/mstiles/streetview-dl). Requires a Google Maps API key with Map Tiles API enabled:
+
+```bash
+export GOOGLE_MAPS_API_KEY="your_key"
+uv run python scripts/discover_streetview.py   # find all panos on the island
+uv run python scripts/download_visuals.py      # download curated views from manifest
+```
+
+Curated images are listed in `visuals/manifest.json`. To add a new view:
+
+1. Open a URL from `data/streetview_urls.txt` in Google Maps (or browse inside the cellhouse)
+2. Adjust heading and pitch, then copy the share URL
+3. Add an entry to `visuals/manifest.json` with `id`, `title`, `url`, `filename`, and optional `crop_bottom`
+4. Run `uv run python scripts/download_visuals.py`
+
+| File | Description |
+|------|-------------|
+| `visuals/b_block_alcatraz.png` | B Block cell block interior — Morris and the Anglin brothers' housing block |
+| `visuals/manifest.json` | Curated image catalog with URLs and download settings |
+| `visuals/metadata/*.json` | Panorama metadata (capture date, coordinates, pano ID) |
 
 ## Data
 
